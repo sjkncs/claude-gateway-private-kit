@@ -1,0 +1,10 @@
+.cache/
+node_modules/
+.env*
+*.local.*
+*.log
+*.exe
+*.zip
+*.tgz
+.claude.json
+.credentials.json

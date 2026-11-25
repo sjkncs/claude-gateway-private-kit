@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-11-25",
+  "registry": "https://registry.npmjs.org/",
+  "components": [
+    {
+      "name": "@anthropic-ai/claude-code",
+      "version": "2.1.332",
+      "node": ">=22.0.0",
+      "license": "SEE LICENSE IN README.md",
+      "redistribution": "Not bundled; review upstream terms before redistribution",
+      "installHook": "postinstall: node install.cjs; may download platform binaries",
+      "tarball": "https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.1.332.tgz",
+      "integrity": "sha512-tvSh6bLvEbd97APD31AnojOrRC3AmcRj5R8sF8QIQitu3x2ucOb1kKmTkGDw41kjva+CGJfpkt+wYouk6yv56Q==",
+      "file": "claude-code-2.1.332.tgz"
+    },
+    {
+      "name": "@modelcontextprotocol/server-filesystem",
+      "version": "2.4.0",
+      "node": ">=24",
+      "license": "SEE LICENSE IN LICENSE",
+      "redistribution": "Not bundled; inspect archive LICENSE",
+      "installHook": "prepare: npm run build; dependency tree requires independent review before execution",
+      "tarball": "https://registry.npmjs.org/@modelcontextprotocol/server-filesystem/-/server-filesystem-2.4.0.tgz",
+      "integrity": "sha512-BoT8Gws5MsetfAey4vDyuzy8WYQES6mGYLSShuqSNGAC0X0NBV4p78/R78KfW4RkxtWz+zxhS9jwhzJrQUTt2Q==",
+      "file": "server-filesystem-2.4.0.tgz"
+    }
+  ]
+}
