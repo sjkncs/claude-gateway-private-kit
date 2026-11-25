@@ -6,7 +6,7 @@ export const allowed = [
   '.gitignore', 'README.md', 'LICENSE', 'config/mcp.example.json',
   'sources/components.lock.json', 'sources/VALIDATION.md',
   'scripts/start-claude.ps1', 'scripts/fetch-packages.mjs',
-  'scripts/validate-bundle.mjs', 'tests/validator.test.mjs',
+  'scripts/validate-bundle.mjs', 'scripts/smoke-gateway.mjs', 'tests/validator.test.mjs',
   'skills/gateway-doctor/SKILL.md'
 ];
 export function findings(text) {
