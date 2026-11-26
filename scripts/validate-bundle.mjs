@@ -5,7 +5,7 @@ import path from 'node:path';
 export const allowed = [
   '.gitignore', 'README.md', 'LICENSE', 'config/mcp.example.json',
   'config/collaboration.md', 'sources/components.lock.json', 'sources/VALIDATION.md',
-  'scripts/start-claude.ps1', 'scripts/fetch-packages.mjs',
+  'scripts/start-claude.ps1', 'scripts/start-claude-macos.sh', 'scripts/fetch-packages.mjs',
   'scripts/validate-bundle.mjs', 'scripts/smoke-gateway.mjs', 'tests/validator.test.mjs',
   'skills/gateway-doctor/SKILL.md'
 ];

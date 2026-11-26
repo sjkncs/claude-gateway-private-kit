@@ -1,4 +1,16 @@
-# Claude Code 授权 Gateway 配置包（Windows）
+# Claude Code 授权 Gateway 配置包（Windows 与 macOS）
+
+## macOS 快速启动
+
+安装 Claude Code 后，在终端运行 `claude --version` 确认可用。进入你要处理的项目目录，再运行下面的命令，把引号中的路径换成下载的 kit 所在位置。
+
+```bash
+/bin/bash "/实际路径/claude-gateway-private-kit/scripts/start-claude-macos.sh" --collaborative
+```
+
+依次输入自己的 HTTPS gateway 地址、模型 ID 和令牌。输入令牌时屏幕不会显示字符。省略 `--collaborative` 即可沿用客户端原有权限模式。
+
+## Windows 启动参数
 
 需要 Claude 自行处理常规决策时，在启动命令末尾加上 `-Collaborative`。启动器会为本次会话请求 Auto 权限模式，并载入 [协作规则](config/collaboration.md)，让 Claude 合并必要的提问、复用已读材料并在交付前验证结果。可在客户端模式菜单查看实际生效的权限模式。省略该参数时沿用客户端原有设置。
 
