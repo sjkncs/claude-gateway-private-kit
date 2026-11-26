@@ -1,5 +1,18 @@
 # Claude Code 授权 Gateway 配置包（Windows 与 macOS）
 
+## 下载后开始使用
+
+打开 [最新发布版](https://github.com/sjkncs/claude-gateway-private-kit/releases/latest)，用有仓库访问权的 GitHub 账号下载附件 **Claude-Gateway-Kit.zip**，完整解压。两个系统使用同一个压缩包。
+
+首次使用请准备好自己的 HTTPS 网关地址、模型 ID 和令牌，并在终端用 `claude --version` 确认客户端可用。若尚未安装，请先完成 [Claude Code 官方安装](https://code.claude.com/docs/en/setup)。
+
+| 系统 | 解压后的操作 |
+| --- | --- |
+| Windows | 双击 `Start-Windows.cmd`，在窗口中输入要工作的项目目录。 |
+| macOS | 双击 `Start-Mac.command`，在终端中输入项目目录。如果从终端启动，可输入 `/bin/bash `，再将该文件拖入终端并回车。 |
+
+按提示输入网关地址、模型 ID 和令牌。启动后输入 `/status` 查看当前连接。两个快捷入口均启用协作模式。
+
 ## macOS 快速启动
 
 安装 Claude Code 后，在终端运行 `claude --version` 确认可用。进入你要处理的项目目录，再运行下面的命令，把引号中的路径换成下载的 kit 所在位置。

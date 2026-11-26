@@ -3,6 +3,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 
 export const allowed = [
+  'Start-Windows.cmd', 'Start-Mac.command',
   '.gitignore', 'README.md', 'LICENSE', 'config/mcp.example.json',
   'config/collaboration.md', 'sources/components.lock.json', 'sources/VALIDATION.md',
   'scripts/start-claude.ps1', 'scripts/start-claude-macos.sh', 'scripts/fetch-packages.mjs',
