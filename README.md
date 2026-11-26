@@ -2,9 +2,11 @@
 
 ## 下载后开始使用
 
+按本项目的网络配置，启动前请先连接 VPN 的美国节点，并在代理客户端开启“智能代理”模式。连接成功后再打开启动器。
+
 打开 [最新发布版](https://github.com/sjkncs/claude-gateway-private-kit/releases/latest)，用有仓库访问权的 GitHub 账号下载附件 **Claude-Gateway-Kit.zip**，完整解压。两个系统使用同一个压缩包。
 
-首次使用请准备好自己的 HTTPS 网关地址、模型 ID 和令牌，并在终端用 `claude --version` 确认客户端可用。若尚未安装，请先完成 [Claude Code 官方安装](https://code.claude.com/docs/en/setup)。
+首次使用请准备好自己的 HTTPS 网关地址、模型 ID 和令牌。启动器会检查 Claude Code。已安装时直接启动，首次安装时请保持联网。Windows 可按提示通过 WinGet 安装，Mac 可按提示通过 Homebrew 安装。缺少对应的软件包管理器时，启动器会打开 [官方安装页](https://code.claude.com/docs/en/setup)，安装完成后重新打开入口即可。
 
 | 系统 | 解压后的操作 |
 | --- | --- |
