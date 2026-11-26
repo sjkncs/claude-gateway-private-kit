@@ -1,6 +1,11 @@
-param()
+param([switch]$Collaborative)
 $ErrorActionPreference = 'Stop'
 $client = Get-Command claude -ErrorAction Stop
+$launchArgs = @()
+if ($Collaborative) {
+    $rules = Get-Content -LiteralPath (Join-Path $PSScriptRoot '../config/collaboration.md') -Encoding UTF8 -Raw -ErrorAction Stop
+    $launchArgs = @('--permission-mode', 'auto', '--append-system-prompt', $rules.Trim())
+}
 $endpoint = [Uri](Read-Host 'HTTPS gateway base URL')
 if ($endpoint.Scheme -ne 'https' -or $endpoint.UserInfo -or $endpoint.Query -or $endpoint.Fragment) {
     throw 'Use an HTTPS base URL without embedded credentials, query or fragment.'
@@ -19,7 +24,7 @@ try {
     $env:ANTHROPIC_AUTH_TOKEN = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($pointer)
     $env:ANTHROPIC_MODEL = $model
     [Environment]::SetEnvironmentVariable('ANTHROPIC_API_KEY', $null, 'Process')
-    & $client.Source
+    & $client.Source @launchArgs
     if ($LASTEXITCODE -ne 0) { throw 'Claude Code exited unsuccessfully.' }
 } finally {
     foreach ($name in $names) { [Environment]::SetEnvironmentVariable($name, $previous[$name], 'Process') }

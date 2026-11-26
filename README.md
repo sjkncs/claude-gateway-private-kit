@@ -1,5 +1,7 @@
 # Claude Code 授权 Gateway 配置包（Windows）
 
+需要 Claude 自行处理常规决策时，在启动命令末尾加上 `-Collaborative`。启动器会为本次会话请求 Auto 权限模式，并载入 [协作规则](config/collaboration.md)，让 Claude 合并必要的提问、复用已读材料并在交付前验证结果。可在客户端模式菜单查看实际生效的权限模式。省略该参数时沿用客户端原有设置。
+
 本包用于把 Claude Code 连接到使用者已有授权的 Anthropic API 兼容 gateway。每位使用者需要自己的有效凭据；本包不提供账号、共享令牌、登录绕过补丁或服务端 gateway。不要把 API 接入理解为 Claude 网页、桌面或云端全部功能均可使用。
 
 ## 已整理的经验与边界
