@@ -4,7 +4,7 @@
 
 完整解压后，双击本系统的 Start 文件。在启动菜单选择 **D（桌面版）**，输入自己的 HTTPS 网关地址、模型 ID 和 Bearer 令牌。Kit 会打开 Claude Desktop。已经运行的桌面版需要完全退出并重开。选择 **T（终端）** 可使用 Claude Code CLI。
 
-Windows 将令牌保存在当前用户的 Claude 注册表策略中，同一用户的程序可以读取。已有组织策略时，启动器会提示联系管理员。macOS 将打开个人配置描述文件，请在系统设置中核对并批准安装，然后回到启动窗口按回车。两种方式均使用个人网关令牌认证。桌面应用尚未安装时，启动器会打开官方下载页。详见 [Anthropic 桌面版网关部署说明](https://claude.com/docs/third-party/claude-desktop/gateway)。
+Windows 用户选择 D 后，启动器先检查系统策略和桌面应用当前启用的网关。若已有网关与终端配置的地址和模型一致，便直接打开桌面应用。首次设置可读取当前用户 Claude Code 配置中的网关地址、模型和 Bearer 令牌，缺少的项目会提示输入。启动器将首次设置写入当前用户的 Claude 注册表策略，同一用户的程序可以读取令牌。Windows 限制写入时需要同一账号批准管理员操作。若设备要求使用另一管理员账号，请联系管理员或使用桌面版自带的网关设置。macOS 将打开个人配置描述文件，请在系统设置中批准安装，再回到启动窗口按回车。桌面应用尚未安装时，启动器会打开官方下载页。详见 [Anthropic 桌面版网关部署说明](https://claude.com/docs/third-party/claude-desktop/gateway)。
 
 撤销桌面设置时，Mac 可在系统设置中移除 **Claude Desktop Gateway** 描述文件。Windows 可在当前用户的 `Software\Policies\Claude` 键下移除本工具创建的 `inferenceProvider`、`inferenceGatewayBaseUrl`、`inferenceGatewayAuthScheme`、`inferenceGatewayApiKey` 和 `inferenceModels` 五项值，再重启桌面应用。
 
