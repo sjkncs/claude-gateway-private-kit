@@ -2,6 +2,8 @@
 set -eu
 echo '启动前请连接 VPN 的美国节点，并开启智能代理模式。'
 kit=$(cd "$(dirname "$0")" && pwd)
+IFS= read -r -p 'Desktop gateway setup [D] or terminal [T]? ' mode
+case "$mode" in ''|d|D) exec /bin/bash "$kit/scripts/desktop-macos.sh" ;; t|T) ;; *) exit 2 ;; esac
 export PATH="$PATH:$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin"
 if ! command -v claude >/dev/null; then
   if command -v brew >/dev/null; then

@@ -2,6 +2,12 @@
 
 ## 下载后开始使用
 
+完整解压后，双击本系统的 Start 文件。在启动菜单选择 **D（桌面版）**，输入自己的 HTTPS 网关地址、模型 ID 和 Bearer 令牌。Kit 会打开 Claude Desktop。已经运行的桌面版需要完全退出并重开。选择 **T（终端）** 可使用 Claude Code CLI。
+
+Windows 将令牌保存在当前用户的 Claude 注册表策略中，同一用户的程序可以读取。已有组织策略时，启动器会提示联系管理员。macOS 将打开个人配置描述文件，请在系统设置中核对并批准安装，然后回到启动窗口按回车。两种方式均使用个人网关令牌认证。桌面应用尚未安装时，启动器会打开官方下载页。详见 [Anthropic 桌面版网关部署说明](https://claude.com/docs/third-party/claude-desktop/gateway)。
+
+撤销桌面设置时，Mac 可在系统设置中移除 **Claude Desktop Gateway** 描述文件。Windows 可在当前用户的 `Software\Policies\Claude` 键下移除本工具创建的 `inferenceProvider`、`inferenceGatewayBaseUrl`、`inferenceGatewayAuthScheme`、`inferenceGatewayApiKey` 和 `inferenceModels` 五项值，再重启桌面应用。
+
 按本项目的网络配置，启动前请先连接 VPN 的美国节点，并在代理客户端开启“智能代理”模式。连接成功后再打开启动器。
 
 打开 [最新发布版](https://github.com/sjkncs/claude-gateway-private-kit/releases/latest)，用有仓库访问权的 GitHub 账号下载附件 **Claude-Gateway-Kit.zip**，完整解压。两个系统使用同一个压缩包。

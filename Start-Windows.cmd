@@ -1,5 +1,11 @@
 @echo off
 setlocal DisableDelayedExpansion
+choice /c DT /m "Choose Desktop gateway setup (D) or Terminal (T)"
+if errorlevel 2 goto terminal
+powershell.exe -NoProfile -File "%~dp0scripts\desktop-gateway.ps1"
+if errorlevel 1 (pause & exit /b 1)
+exit /b 0
+:terminal
 echo Before starting, connect your VPN to a US server and enable Smart Proxy mode.
 where claude >nul 2>&1
 if errorlevel 1 (
