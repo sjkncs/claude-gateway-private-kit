@@ -3,6 +3,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 
 export const allowed = [
+  'scripts/verify-desktop.ps1',
   'scripts/desktop-gateway.ps1', 'scripts/desktop-macos.sh',
   'Start-Windows.cmd', 'Start-Mac.command',
   '.gitignore', 'README.md', 'LICENSE', 'config/mcp.example.json',

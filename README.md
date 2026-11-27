@@ -68,3 +68,4 @@ Windows 用户选择 D 后，启动器先检查系统策略和桌面应用当前
 - [官方 MCP 文档](https://code.claude.com/docs/en/mcp)
 - [官方 Skills 文档](https://code.claude.com/docs/en/skills)
 - [Filesystem MCP 官方仓库](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem)
+Windows 桌面模式会向所选模型发送一条简短测试消息，收到预期回复后启动桌面应用。启动器通过 Windows 文字识别检查窗口底部的 Gateway 身份和会话输入栏。窗口识别仅在内存中进行。已有桌面配置但缺少终端凭据时，只进行窗口检查。组织单点登录及系统管理员确认仍由使用者完成。

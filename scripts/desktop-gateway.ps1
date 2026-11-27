@@ -1,5 +1,6 @@
 param([string]$ExpectedSid)
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'verify-desktop.ps1')
 $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
 if ($ExpectedSid -and $ExpectedSid -ne $identity.User.Value) {
     throw 'Windows selected a different administrator account. Use the Desktop gateway setup screen under your own account.'
@@ -12,7 +13,10 @@ function Read-Config($path) {
 }
 $desktop = Get-StartApps | Where-Object { $_.AppID -eq 'Claude_pzs8sxrjxfjjc!Claude' -or $_.AppID -eq 'com.squirrel.AnthropicClaude.claude' } | Sort-Object { $_.AppID -notlike '*!Claude' } | Select-Object -First 1
 if (-not $desktop) { Start-Process 'https://claude.com/download'; throw 'Install Claude Desktop, then reopen this launcher.' }
-function Open-Desktop { Start-Process explorer.exe -ArgumentList ("shell:AppsFolder\" + $desktop.AppID) }
+function Open-Desktop {
+    Start-Process explorer.exe -ArgumentList ("shell:AppsFolder\" + $desktop.AppID)
+    Confirm-DesktopWorkspace
+}
 $cli = (Read-Config (Join-Path $env:USERPROFILE '.claude\settings.json')).env
 function Use-Existing($config) {
     $models = $config.inferenceModels
@@ -23,6 +27,9 @@ function Use-Existing($config) {
         ($cli.ANTHROPIC_MODEL -and $cli.ANTHROPIC_MODEL -cnotin @($models | ForEach-Object { if ($_ -is [string]) { $_ } else { $_.name } }))) {
         throw 'Desktop and CLI select different gateways or models. Review the active Desktop configuration.'
     }
+    if ($cli.ANTHROPIC_BASE_URL -and $cli.ANTHROPIC_AUTH_TOKEN -and $cli.ANTHROPIC_MODEL) {
+        Test-GatewayReply $cli.ANTHROPIC_BASE_URL $cli.ANTHROPIC_MODEL $cli.ANTHROPIC_AUTH_TOKEN
+    } else { Write-Host 'Terminal Bearer configuration unavailable. Checking the existing Desktop session only.' }
     Write-Host 'Existing Desktop gateway recognized. Opening Claude Desktop.'
     Open-Desktop
 }
@@ -70,6 +77,7 @@ try {
         inferenceProvider = 'gateway'
     }
     if (-not (Test-Path $policy)) { New-Item $policy | Out-Null }
+    Test-GatewayReply $endpoint $model $settings.inferenceGatewayApiKey
     foreach ($name in $settings.Keys) {
         New-ItemProperty -Path $policy -Name $name -Value $settings[$name] -PropertyType String | Out-Null
         $written += $name
